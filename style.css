@@ -1,0 +1,263 @@
+﻿body {
+    background-color: white;
+    padding: 100px;
+}
+
+footer {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 100%;
+    color: black;
+    text-align: center;
+}
+
+footer span {
+    float: right;
+    margin-left: 30px;
+}
+
+#darkMode {
+    cursor: pointer;
+}
+
+.toolTip {
+    position: relative;
+    display: inline-block;
+}
+
+.toolTip .toolTipText {
+    visibility: hidden;
+    width: 100px;
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    z-index: 2;
+    top: -5px;
+    left: 105%;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.toolTip:hover .toolTipText {
+    visibility: visible;
+}
+
+.toolTip .toolTipText::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* To the left of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-size: 40px;
+    color: #505050;
+}
+
+#beginning {
+    text-align: center;
+}
+
+#tab1fade.active {
+    opacity: 0;
+}
+
+#header.active {
+    opacity: 0;
+}
+
+#tab1fade.inactive {
+    opacity: 1;
+    transition: opacity 5s;
+}
+
+#header.inactive {
+    opacity: 1;
+    transition: opacity 5s;
+}
+
+ul {
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 20px;
+}
+
+#i1, #e1, #i12, #e12 {
+    opacity: 1;
+}
+
+#i1.active, #e1.active, #i12.active, #e12.active {
+    opacity: 0.25;
+}
+
+#i1.inactive, #e1.inactive, #i12.inactive, #e12.inactive {
+    opacity: 1;
+    transition: opacity 1.5s;
+}
+
+#i2, #e2, #i22, #e22 {
+    opacity: 0.75;
+}
+
+#i3, #e3, #i32, #e32 {
+    opacity: 0.5;
+}
+
+#i4, #e4, #i42, #e42 {
+    opacity: 0.25;
+}
+
+table {
+    table-layout: fixed;
+    border: none;
+    text-align: center;
+}
+
+tr {
+    height: 40px;
+}
+
+.buttonProgress { /*This is the container with the button AND the progress*/
+    width: 150px; /*MAKE THIS THE SAME AS UR BUTTONS*/
+    height: 30px;
+    margin: 0px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loadingBarButton {
+    position: absolute;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+}
+
+.loadingBarInner {                              /*This is the actual bar.*/
+    position: absolute;
+    z-index: 1;
+    width: 0%;
+    height: 100%;
+    background-color: #ccc;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 2px;                         /*Change this for rounded edges*/
+}
+
+button {
+    color: #000000;
+    background-color: #fff;
+    border-radius: 2px;                         /*Change this for rounded edges*/
+    border-color: #939393;
+    border-style: solid;
+    width: 150px;
+    height: 30px;
+}
+
+button:hover {
+    background-color: #F2F2F2;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+    transition: opacity 0.75s;  /*maybe this is the reason for the "jump"*/
+    cursor: default;
+}
+
+button:enabled {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+button:focus {
+    outline: 0;
+}
+
+.messageBox {
+    position: relative;
+    z-index: 1;
+    border: 3px solid black;
+    border-radius: 10px;
+    height: 150px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    vertical-align: middle;
+    display: none;
+}
+
+.tabs {
+    text-align: center;
+}
+
+.tabs > button {
+    width: 200px;
+    height: 40px;
+}
+
+.tab2 {
+    display: none;
+}
+
+.tab3 {
+    display: none;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 300px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.3); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;       /*?????????????/*/
+    padding: 15px;
+    border: 1px solid #606060;
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+}
+
+button.modal-content {
+                                    /*FIX YES/NO SHIT*/
+}
+
+/*This is for the dock ascii art ================================*/
+.preContainer {
+    text-align: center;
+}
+
+.preContainer pre {
+    display: inline-block;
+    text-align: left;
+}
+
+#dockHatch {
+    cursor: pointer;
+}
+
+.hatchGold {
+    color: goldenrod;
+    cursor: pointer;
+}
+
+/*This is for the dock ascii art ================================*/

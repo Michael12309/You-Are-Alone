@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        You are alone
+    </title>
+    <link id="pageStyle" rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <footer id="bottomText">
+        <!--I know its weird to have to footer here but i want it here so fuck u-->
+        <span>Inspired by <b>A Dark Room</b> and many others :)</span>
+        <span>Created by Michael Leonard</span>
+        <span><u id="darkMode" onclick="darkMode()">Dark mode</u>  (WORK IN PROGRESS)</span>
+        <!--<span><u onclick="tempCheat()">Cheat</u></span>-->
+    </footer>
+    <h1 id="header">
+        You are alone
+    </h1>
+    <br><br>
+    <p id="beginning"></p>
+    <div class="tabs">
+        <button id="tab1" onclick="switchToTab1()">
+            Forest
+        </button>
+        <button id="tab2" onclick="switchToTab2()">
+            Village
+        </button>
+        <button id="tab3" onclick="switchToTab3()">
+            Dock
+        </button>
+    </div>
+    <br>
+    <div id="tab1fade">
+        <div class="tab1">
+            <table border="0" width="100%" class="table1">
+                <!-- fix width = 100% -->
+                <tr>
+                    <th>
+                        Readout
+                    </th>
+                    <th>
+                        Events
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                    <th>
+                        Supplies
+                    </th>
+                </tr>
+                <tr>
+                    <td id="i1"></td>   <!-- make more descriptive -->
+                    <td id="e1"></td>   <!-- make more descriptive (this also means fixing all instances of "i1 i2 i3 e1 e2 e3" in javascript) -->
+                    <td>
+                        <div class="toolTip" id="gatherWoodContainer">
+                            <div class="buttonProgress">
+                                <button id="gatherWood" class="loadingBarButton" onclick="gatherWood()">
+                                    <!--can we automate these in js? -->
+                                    Gather wood
+                                </button>
+                                <div id="loadingBarWood" class="loadingBarInner"></div>
+                            </div>
+                            <span class="toolTipText">+1-3 wood</span>
+                        </div>
+                    </td>
+                    <td id="wood"></td>
+                </tr>
+                <tr>
+                    <td id="i2"></td>
+                    <td id="e2"></td>
+                    <td>
+                        <div class="toolTip" id="feedFireContainer">
+                            <div class="buttonProgress">
+                                <button id="feedFire" class="loadingBarButton" onclick="feedFire()"></button>
+                                <div id="feedFireProgress" class="loadingBarInner"></div>
+                            </div>
+                            <span class="toolTipText">-1 wood</span>
+                        </div>
+                    </td>
+                    <td id="food"></td>
+                </tr>
+                <tr>
+                    <td id="i3"></td>
+                    <td id="e3"></td>
+                    <td>
+                        <div class="toolTip" id="goHuntingContainer">
+                            <div class="buttonProgress">
+                                <button id="goHunting" class="loadingBarButton" onclick="goHunting()">
+                                    Go hunting
+                                </button>
+                                <div id="goHuntingProgress" class="loadingBarInner"></div>
+                            </div>
+                            <span class="toolTipText">+5-8 food<br>+0-1 pelt</span>
+                        </div>
+                    </td>
+                    <td id="pelt"></td>
+                </tr>
+                <tr>
+                    <td id="i4"></td>
+                    <td id="e4"></td>
+                    <td>
+                        <div class="toolTip" id="collectStonesContainer">
+                            <div class="buttonProgress">
+                                <button id="collectStones" class="loadingBarButton" onclick="collectStones()">
+                                    Collect stones
+                                </button>
+                                <div id="collectStonesProgress" class="loadingBarInner"></div>
+                            </div>
+                            <span class="toolTipText">+15-30 stone</span>
+                        </div>
+                    </td>
+                    <td id="stone"></td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td> </td>
+                    <td> </td>
+                    <td id="gold"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="tab2">
+        <table border="0" width="100%" class="table1">
+            <tr>
+                <th>
+                    Readout
+                </th>
+                <th>
+                    Events
+                </th>
+                <th>
+                    Actions
+                </th>
+                <th>
+                    Supplies
+                </th>
+            </tr>
+            <tr>
+                <td id="i12"></td>
+                <td id="e12"></td>
+                <td>
+                    <div class="toolTip" id="buildHouseContainer">
+                        <div class="buttonProgress">
+                            <button id="buildHouse" class="loadingBarButton" onclick="buildHouse()">
+                                Build house
+                            </button>
+                            <div id="buildHouseProgress" class="loadingBarInner"></div>
+                        </div>
+                        <span class="toolTipText">+1 house<br>+3 max pop.<br>-65 wood<br>-15 stone</span>
+                    </div>
+                </td>
+                <td id="population"></td>
+            </tr>
+            <tr>
+                <td id="i22"></td>
+                <td id="e22"></td>
+                <td>
+                    <div class="toolTip" id="buildTreeFarmContainer">
+                        <div class="buttonProgress">
+                            <button id="buildTreeFarm" class="loadingBarButton" onclick="buildTreeFarm()">
+                                Build tree farm
+                            </button>
+                            <div id="buildTreeFarmProgress" class="loadingBarInner"></div>
+                        </div>
+                        <span class="toolTipText">+1 tree farm<br>(+0.1 wood/s)<br>-68 wood</span>
+                    </div>
+                </td>
+                <td id="houses"></td>
+            </tr>
+            <tr>
+                <td id="i32"></td>
+                <td id="e32"></td>
+                <td>
+                    <div class="toolTip" id="buildFarmContainer">
+                        <div class="buttonProgress">
+                            <button id="buildFarm" class="loadingBarButton" onclick="buildFarm()">
+                                Build wheat farm
+                            </button>
+                            <div id="buildFarmProgress" class="loadingBarInner"></div>
+                        </div>
+                        <span class="toolTipText">+1 farm<br>(+0.2 food/s)<br>-50 wood</span>
+                    </div>
+                </td>
+                <td id="treeFarms"></td>
+            </tr>
+            <tr>
+                <td id="i42"></td>
+                <td id="e42"></td>
+                <td>
+                    <div class="toolTip" id="buildMineContainer">
+                        <div class="buttonProgress">
+                            <button id="buildMine" class="loadingBarButton" onclick="buildMine()" title="">
+                                Build mine
+                            </button>
+                            <div id="buildMineProgress" class="loadingBarInner"></div>
+                        </div>
+                        <span class="toolTipText">+1 mine<br>(+0.1 stone/s)<br>-30 wood<br>-120 stone</span>
+                    </div>
+                </td>
+                <td id="farms"></td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td> </td>
+                <td>
+                    <div class="toolTip" id="buildDockContainer">
+                        <button id="buildDock" onclick="buildDock()">
+                            Build dock
+                        </button>
+                        <span class="toolTipText">+1 dock<br>-85 wood<br>-45 stone</span>
+                    </div>
+                </td>
+                <td id="mines"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="tab3">
+        <div class="preContainer">
+            <p>The dock isn't finished yet :)</p>
+            <pre id="dockASCII">      ~                ~                  ~           ~
+              ~                                 ~                           ~
+                         ~              ~                     ~ 
+             ~                   []           []      ~
+                                 ||           ||                     ~         ~
+     ~              ~            ||  ~        ||
+                              ~  ||___________||     ~
+                       ~         |/ -     --  \|               ~
+    ~                       []   /  --- +--+   \   []                    ~
+               ~            ||  /       +---+   \  ||     ~
+                            || /  -              \ ||                         ~
+        ~                   ||/   +-----+         \||               ~             
+                   ~       ~|/   /<span id="dockHatch" onclick="dockHatch()">|||||||</span>   ---    \|
+                       []   /   +-------+           \   []   ~
+        ~              ||  /  ----                   \  ||                  ~
+               ~       || /              ------       \ ||
+                     ~ ||/        --------        --   \||        ~
+    ~                  |/                               \| 
+             ~         /       ----         -----        \                  
+______________________/___________________________________\______________________
+            </pre>
+            <pre id="hatchASCII" style="position: absolute; right: 0%">
+     
+            ______________________        ________________
+           /      |        \|/                  |    |    \_____                      
+        __/                 |                   |    |          \___               
+       /          .         |                        |           |  \            
+      |   .       .                             :                    \            
+     /                      :                        .           ,    \           
+    |                       '                                          |          
+    |                                                                  |         
+    |                       .                                          |          
+    |     .                                          .                 |         
+    |                              *           *                       |              
+    |             .       *               *                      .     |         
+    |                            *            *                        |          
+    |                                  <span class="hatchGold" onclick="hatchGold()">oo</span>                            __/          
+    \_____x_______       *  <span class="hatchGold" onclick="hatchGold()">oo</span>      <span class="hatchGold" onclick="hatchGold()">o0oo0o</span>     *    _x_____________/                                                                            
+                  \x_______<span class="hatchGold" onclick="hatchGold()">oo0oo</span>_<span class="hatchGold" onclick="hatchGold()">oooo0oooooO</span>__<span class="hatchGold" onclick="hatchGold()">ooo</span>__/
+
+            </pre>
+        </div>
+    </div>
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <p id="messageBoxText"></p>
+            <button id="messageBoxYes">Yes</button>
+            <button id="messageBoxNo">No</button>
+            <button id="messageBoxOk">OK</button>
+            <br />
+            <br />
+        </div>
+    </div>
+<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
